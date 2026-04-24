@@ -80,6 +80,9 @@ input {
   margin: 5px;
   cursor: pointer;
 }
+
+
+
 /* Configurações do mapa */
 .mapa {
   display: flex;
