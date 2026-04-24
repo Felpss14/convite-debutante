@@ -14,10 +14,6 @@
   --cor5: #F6DB68 ;
 }
 
-body {
-  
-}
-
 h1 {
   text-align: center;
   color: var(--cor4);
@@ -83,4 +79,16 @@ input {
   background-color: white;
   margin: 5px;
   cursor: pointer;
+}
+/* Configurações do mapa */
+.mapa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+iframe {
+  width: 50vw;
+  height: 50vh;
 }
