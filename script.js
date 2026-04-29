@@ -1,4 +1,3 @@
-
   function atualizarContador() {
     const agora = new Date();
     
