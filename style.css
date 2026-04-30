@@ -7,6 +7,7 @@
 }
 
 :root {
+  --fonte1 : ;
   --cor1:#9EAE92;
   --cor2:#5733a0;
   --cor3: #B197D6;
@@ -16,6 +17,10 @@
 
 body {
   background: linear-gradient(var(--cor3), var(--cor2));
+}
+
+h1 {
+  text-align: center;
 }
 
 .container {
