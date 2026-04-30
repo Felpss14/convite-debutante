@@ -7,11 +7,47 @@
 }
 
 :root {
-  --cor1:#3C174D;
-  --cor2:#9D4EBF ;
-  --cor3: #8a71a1;
-  --cor4: #F2C230;
-  --cor5: #F6DB68 ;
+  --cor1:#9EAE92;
+  --cor2:#5733a0;
+  --cor3: #B197D6;
+  --cor4: #FFDC32;
+  --cor5: #FEF1AA;
+}
+
+body {
+  background: linear-gradient(var(--cor3), var(--cor2));
+}
+
+/* Carrossel */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+}
+
+.carrossel {
+  display: flex;
+  gap: 16px;
+  overflow: hidden; /* 🔥 MUITO IMPORTANTE */
+}
+
+/* esconder scrollbar */
+.carrossel::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 80%;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* imagens ajustadas */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Configurações do mapa */
