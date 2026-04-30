@@ -7,7 +7,7 @@
 }
 
 :root {
-  --fonte1 : ;
+  --fonte1:;
   --cor1:#9EAE92;
   --cor2:#5733a0;
   --cor3: #B197D6;
@@ -20,6 +20,7 @@ body {
 }
 
 h1 {
+  font-family:'Parisienne', sans-serif;
   text-align: center;
 }
 
