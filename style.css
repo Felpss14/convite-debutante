@@ -8,7 +8,7 @@
 
 :root {
   --fonte1: 'Parisienne';
-  --fonte2: 'Pinyon Script'
+  --fonte2: 'Pinyon Script';
   --cor1:#9EAE92;
   --cor2:#5733a0;
   --cor3: #B197D6;
@@ -16,7 +16,11 @@
   --cor5: #FEF1AA;
 }
 
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: 100dvh; /* sobrescreve quando suportado */
   background: linear-gradient(var(--cor3), var(--cor2));
 }
 
@@ -27,7 +31,7 @@ h1 {
 
 .container {
   width: 100%;
-  padding: 8px;
+  padding: 0;
 }
 
 .carrossel {
@@ -45,7 +49,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px; /* respiro interno */
+  padding: 0px; /* respiro interno */
 }
 
 /* IMAGEM */
