@@ -1,17 +1,23 @@
 const carrossel = document.querySelector('.carrossel');
 
-// DUPLICA os cards (loop infinito)
+// duplica os cards (loop infinito)
 carrossel.innerHTML += carrossel.innerHTML;
 
 let scrollAmount = 0;
-const velocidade = 0.8;
+let velocidade = 0.6;
+
+let isDown = false;
+let startX;
+let scrollStart;
 let pausado = false;
 
+// ==========================
+// 🎞 AUTOPLAY
+// ==========================
 function animar() {
-  if (!pausado) {
+  if (!pausado && !isDown) {
     scrollAmount += velocidade;
 
-    // quando chega na metade (fim da primeira lista)
     if (scrollAmount >= carrossel.scrollWidth / 2) {
       scrollAmount = 0;
     }
@@ -24,16 +30,61 @@ function animar() {
 
 animar();
 
-// pausa no toque (mobile)
-carrossel.addEventListener("touchstart", () => {
+// ==========================
+// 👆 SWIPE (TOQUE)
+// ==========================
+carrossel.addEventListener("touchstart", (e) => {
+  isDown = true;
   pausado = true;
+  startX = e.touches[0].pageX;
+  scrollStart = carrossel.scrollLeft;
+});
+
+carrossel.addEventListener("touchmove", (e) => {
+  if (!isDown) return;
+
+  const x = e.touches[0].pageX;
+  const walk = (startX - x);
+
+  carrossel.scrollLeft = scrollStart + walk;
 });
 
 carrossel.addEventListener("touchend", () => {
+  isDown = false;
   pausado = false;
 });
 
-//Contador
+// ==========================
+// 🖱 SWIPE (DESKTOP também)
+// ==========================
+carrossel.addEventListener("mousedown", (e) => {
+  isDown = true;
+  pausado = true;
+  startX = e.pageX;
+  scrollStart = carrossel.scrollLeft;
+});
+
+carrossel.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+
+  const walk = (startX - e.pageX);
+  carrossel.scrollLeft = scrollStart + walk;
+});
+
+carrossel.addEventListener("mouseup", () => {
+  isDown = false;
+  pausado = false;
+});
+
+carrossel.addEventListener("mouseleave", () => {
+  isDown = false;
+  pausado = false;
+});
+
+
+// ==========================
+// ⏳ CONTADOR
+// ==========================
 function atualizarContador() {
   const agora = new Date();
   const destino = new Date("2026-06-28T16:00:00");
@@ -57,6 +108,5 @@ function atualizarContador() {
     segundos + " segundos";
 }
 
-// inicia imediatamente + atualiza a cada 1s
 atualizarContador();
 setInterval(atualizarContador, 1000);
